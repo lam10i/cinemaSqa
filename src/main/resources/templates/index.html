@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Home</title>
+<link rel="stylesheet" href="#" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" href="#" th:href="@{/css/all.css}" />
+<link rel="stylesheet" href="#" th:href="@{/css/index.css}" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<div class="container base">
+		<div class="row base-row">
+			<div class="col-3 menu">
+			<div class="logo mb-5 text-center text-light bg-dark pt-1 pb-1">
+			<h4>Galaxy Cinema</h4>
+			</div>
+				<ul class="list">
+					<li><a th:classappend="${menu == 'home'} ? 'text-dark' : ' '" th:href="@{/}"><i class="list__icon fas fa-home"></i>Home</a></li>
+					<li><a th:href="@{/register}"><i class="list__icon fas fa-user-plus"></i>Register</a></li>
+					<li><a th:href="@{/loginForm}"><i class="list__icon fas fa-users"></i>Login</a></li>
+					<li><a href="/event"><i class="list__icon fas fa-address-card"></i>Event</a></li>
+					<li><a href="/contact"><i class="list__icon fas fa-phone-square-alt"></i>Contact
+							us</a></li>
+				</ul>
+			</div>
+			<div class="col-9 before_login_home">
+				<div class="before_head">
+					<form th:action="@{/search}" method="get">
+						<input name="keyword" type="search" placeholder="Search for movies" />
+						<button>
+							<i class="fa fa-search"></i>
+						</button>
+
+					</form>
+
+
+				</div>
+				<div class="before_main_section row">
+
+					<div class="card-section col-lg-4 col-md-6 col-sm-12" th:each="movies : ${movieList}">
+						<a target="_blank" th:href="${movies.iframe}" class="btn card-section__btn">
+							<i class="fa-solid fa-play"></i>
+						</a>
+						<form th:action="@{/loginForm}" method="get">
+							<img th:src="${movies.image}" height="280px" alt="Hinh Anh" />
+							<div>
+								<span style="font-size: 15px;font-weight: 500;display: inline-block;width: 100%;text-align: center" th:text="${movies.movieName}"></span>
+							</div>
+							<div class="card_body">
+								<a th:href="'/movieDetail/' + ${movies.movieId}" class="btn btn-warning btn-detail">View detail</a>
+								<button class=" btn btn-primary btn-submit" type="submit" name="movieName" th:value="${movies.movieName}">Book now</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

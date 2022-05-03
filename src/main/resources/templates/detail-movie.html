@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Movie detail</title>
+    <link rel="stylesheet" href="#" th:href="@{/css/bootstrap.css}" />
+    <link rel="stylesheet" href="#" th:href="@{/css/all.css}" />
+    <link rel="stylesheet" href="#" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-color: rgba(255,255,255,0.7);
+        }
+        .container-detail{
+            background-color: rgba(255,255,255,0.7);
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+        .container-detail__left{
+            padding-left: 16px;
+            padding-right: 16px;
+            padding-top: 8px;
+        }
+        .container-detail__right{
+
+        }
+        .container-detail__right h2{
+            margin: 0;
+        }
+        .container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl{
+            background-color: #c7c7c7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-3">
+        <div style="background-color: rgba(255,255,255,0.7) !important;" class="row container-detail">
+            <div class="col-3 container-detail__left">
+                <img width="100%" height="auto" th:src="${m.image}">
+            </div>
+            <div class="col-9 container-detail__right">
+                <h3 th:text="${m.movieName}"></h3>
+                <i style="color: yellow;font-size: 20px" class="fa-solid fa-star"></i>
+                <p style="display: inline;margin-right: 3px" th:text="${m.point +'/10'}"></p>
+                <i class="fa-solid fa-clock"></i>
+                <p style="display: inline" th:text="${m.duration + 'phút'}"></p>
+                <p th:text="${'Đạo diễn: ' + m.director}"></p>
+                <p th:text="${'Thể loại: ' + m.category}"></p>
+                <p th:text="${'Quốc gia: ' + m.nation}"></p>
+                <p th:text="${'Diễn viên: ' + m.cast}"></p>
+                <p th:text="${'Ngày: ' + m.timeRelease}"></p>
+            </div>
+        </div>
+        <div >
+            <h5>NỘI DUNG PHIM</h5>
+            <p th:text="${m.movieDetail}"></p>
+        </div>
+    </div>
+<a href='/' style="display: block" class="text-primary text-center">Back to page</a>
+</body>
+</html>

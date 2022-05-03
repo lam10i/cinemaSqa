@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="#" th:href="@{/css/bootstrap.css}" />
+    <link rel="stylesheet" href="#" th:href="@{/css/all.css}" />
+    <link rel="stylesheet" href="#" th:href="@{/css/index.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .main-dashboard-right{
+            background-color: #f7364a;
+            text-align: right;
+        }
+        .fa-user {
+            padding: 8px;
+            background-color: white;
+            border-radius: 15px;
+        }
+        .main-dashboard-head .main-dashboard-right p .name-user{
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+
+        html {
+
+            font-size: 62.5%;
+
+        }
+
+        body {
+
+            font-size: 10px;
+            font-weight: 400;
+            font-family: lato, Arial, Helvetica, sans-serif;
+            text-rendering: optimizeLegibility;
+
+        }
+
+        .event .header--text {
+
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .event .header--text h2 {
+
+            font-size: 1.5rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+            line-height: 1.4;
+
+        }
+
+        .event .event--section {
+
+            display: flex;
+            flex-flow: wrap;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .event .event--content {
+
+            margin: 2rem 1.2rem;
+            width: 60rem;
+            position: relative;
+
+        }
+
+        .event--content .event--img {
+
+            overflow: hidden;
+
+        }
+
+        .event--content .event--img img {
+
+            width: 115%;
+
+            transition: all .5s;
+        }
+
+        .event--content .event--img img:hover {
+
+            transform: scale(1.2);
+            filter: brightness(.8);
+
+        }
+
+        .event .content--text {
+
+            width: 38rem;
+
+            padding: 2.5rem;
+            box-shadow: 0 6rem 4rem -1rem rgba(122, 122, 122, 0.295);
+            background: rgba(255, 255, 255, 0.874);
+
+            position: absolute;
+            top: 3.22rem;
+            right: 4rem;
+
+        }
+
+        .content--text .event--menu h4 {
+
+            font-size: 4.5rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: #182731;
+
+            line-height: 1.2;
+
+        }
+
+        .content--text .event--menu h4::after {
+
+            content: " ";
+            display: block;
+            width: 16rem;
+            height: 4px;
+            background: #0984e3;
+
+        }
+
+        .event--menu .event--detail {
+
+            margin: 1.2rem 0;
+
+            list-style-type: none;
+
+        }
+
+        .event--menu .event--detail li {
+
+            font-size: 1.7rem;
+            font-weight: 400;
+
+            padding: .4rem;
+
+        }
+
+        .event--menu .event--detail li i {
+
+            font-size: 1.4rem;
+            font-weight: 400;
+
+        }
+
+        .event--menu .event--detail li span {
+
+            font-size: 1.5rem;
+            font-style: italic;
+
+        }
+
+        .content--text .event--text h4 {
+
+            font-size: 2.5rem;
+            font-weight: 400;
+            text-transform: uppercase;
+
+            color: #062d49;
+            letter-spacing: 2px;
+            line-height: 1.7;
+
+        }
+
+        .content--text .event--text p {
+
+            font-size: 1.4rem;
+            font-weight: 400;
+
+        }
+
+        .content--text .btn {
+
+            margin: 3.5rem 0;
+        }
+
+        .content--text .btn a:link,
+        .content--text .btn a:visited {
+
+            text-transform: uppercase;
+
+            font-size: 1.4rem;
+            font-weight: 400;
+            padding: 1.4rem 2.7rem;
+            border-radius: 2px;
+
+            color: #fff;
+            background: #ff7675;
+
+            transition: all .5s;
+
+        }
+
+        .content--text .btn a:hover {
+
+            letter-spacing: 2px;
+            background: #fc6f6f;
+        }
+
+
+        /* Responsive Section */
+
+        @media only screen and (max-width: 767px) {
+
+            .event .event--section {
+
+                margin: 3rem 0;
+
+            }
+
+            .event .content--text {
+
+                padding: 2.5rem;
+
+            }
+
+            .content--text .event--menu h4 {
+
+                font-size: 2.5rem;
+
+            }
+
+            .content--text .event--menu h4::after {
+
+                width: 10rem;
+
+            }
+
+            .content--text .event--text h4 {
+
+                font-size: 2rem;
+
+            }
+
+            .content--text .btn {
+
+                margin-top: 2.7rem;
+                margin-bottom: 1.7rem;
+
+            }
+
+            .content--text .btn a:link,
+            .content--text .btn a:visited {
+
+                text-transform: uppercase;
+
+                font-size: 1.4rem;
+                padding: 1.4rem 1.7rem;
+
+            }
+
+
+        }
+    </style>
+</head>
+<body>
+<div class="container base">
+    <div class="row base-row">
+        <div class="col-3 menu">
+            <div class="logo mb-5 text-center text-light bg-dark pt-1 pb-1">
+                <h4>Galaxy Cinema</h4>
+            </div>
+            <ul class="list">
+                <li><a th:classappend="${menu == 'home'} ? 'text-dark' : ' '" th:href="@{/home}"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a></li>
+                <li th:if="${session.user.bid==1}"><a th:href="@{/all-customers-records}"><i class="fas fa-users"></i>&nbsp;&nbsp;All Users</a></li>
+                <li><a th:href="@{/manageFilm}"><i class="fa-solid fa-film"></i>&nbsp;&nbsp;Manage film</a></li>
+                <li><a th:href="@{/manageEvent}"><i class="fa-solid fa-calendar"></i>&nbsp;&nbsp;Manage event</a></li>
+
+            </ul>
+        </div>
+        <div class="col-9 before_login_home">
+            <div class="before_head">
+
+
+            </div>
+            <div class="event">
+
+                <div class="header--text">
+
+                    <h2><a href="addEvent"> Add event</a></h2>
+
+                </div>
+
+                <div class="event--section" >
+
+                    <div class="event--content" th:each="event : ${eventList}">
+
+                        <div class="event--img">
+
+                            <img th:src="${event.image}" alt="event photo">
+                        </div>
+
+                        <div class="content--text">
+
+                            <div class="event--menu">
+
+                                <h4 th:text="${event.day}"> </h4>
+
+                                <ul class="event--detail">
+
+                                    <li> <i class="fa fa-clock-o" aria-hidden="true"></i> <span th:text="${event.duration}">  </span></li>
+                                    <li><i class="fa fa-map-marker" aria-hidden="true"></i><span th:text="${event.location}"></span></li>
+                                </ul>
+                            </div>
+
+                            <div class="event--text">
+
+                                <h4 th:text="${event.title}">  </h4>
+                                <p th:text="${event.content}">
+                                </p>
+
+                            </div>
+
+                        </div>
+                        <div style="display: flex;justify-content: space-between" class="button-container">
+                            <a th:href="'update/event/' + ${event.id}" style="margin-left: 5%; font-size: 1.7rem;border-radius: 8px;margin-top: 6px;" class="btn btn-warning">Update</a>
+                            <a th:href="'/delete/event/' + ${event.id}" style="font-size: 1.7rem;border-radius: 8px;margin-right: 5%;margin-top: 6px;" class="btn btn-danger">Delete</a>
+                         </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</div>
+
+<script src="https://use.fontawesome.com/e4dd7e3a17.js"></script>
+</body>
+</html>
